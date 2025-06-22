@@ -10,7 +10,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchProjects = async () => {
-    try {
+    try { 
       const q = query(collection(db, 'photos'), orderBy('uploadedAt', 'desc'), limit(6));
       const snapshot = await getDocs(q);
       const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data(), slug: doc.id }));
