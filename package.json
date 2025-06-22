@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
-     "build": "next build",
-    "start": "next start",
-    "postbuild": "netlify build"
+     "build": "next build"
   },
   "dependencies": {
     "@netlify/next": "^1.4.9",
