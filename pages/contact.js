@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -19,17 +20,30 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Add your form submission logic here
-    // For now, we'll simulate a submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert('Thank you for your message! I\'ll get back to you soon.');
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    const response = await fetch("https://formspree.io/f/xaygwlyk", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.ok) {
+      toast.success("Thank you for your message! I'll get back to you soon.");
       setFormData({ name: '', email: '', subject: '', message: '' });
-    }, 2000);
-  };
+    } else {
+       toast.error("Oops! Something went wrong. Try again later.");
+    }
+  } catch (error) {
+    toast.error("Error submitting the form.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <>
