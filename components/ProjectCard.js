@@ -205,11 +205,11 @@ const ProjectCard = ({ project, viewMode = 'grid' }) => {
           </h3>
 
           {/* Description - Hidden on very small screens, show on larger */}
-         {project.description && (
-  <p className="text-xs sm:text-sm text-gray-600 leading-snug line-clamp-2 overflow-hidden">
-    {project.description}
-  </p>
-)}
+          {project.description && (
+            <p className="text-xs sm:text-sm text-gray-600 leading-snug line-clamp-2 overflow-hidden">
+              {project.description}
+            </p>
+          )}
 
 
           {/* Metadata Container - Responsive layout */}

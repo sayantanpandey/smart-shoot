@@ -164,9 +164,8 @@ const ProjectPage = () => {
                       src={project.imageUrl || '/placeholder.png'}
                       alt={project.caption || 'Project Image'}
                       fill
-                      className={`object-contain transition-opacity duration-700 ${
-                        imageLoaded ? 'opacity-100' : 'opacity-0'
-                      }`}
+                      className={`object-contain transition-opacity duration-700 ${imageLoaded ? 'opacity-100' : 'opacity-0'
+                        }`}
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
                       onLoad={() => setImageLoaded(true)}
                       onError={() => setImageError(true)}
